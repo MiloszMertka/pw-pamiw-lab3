@@ -1,10 +1,7 @@
 package com.example.api.model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,19 +14,23 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
+    @EqualsAndHashCode.Exclude
     private Long id;
 
     @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
+    @EqualsAndHashCode.Exclude
     private String color;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+    @EqualsAndHashCode.Exclude
     private Engine engine;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @Setter(AccessLevel.NONE)
+    @EqualsAndHashCode.Exclude
     private List<EquipmentOption> equipmentOptions = new ArrayList<>();
 
     public Car(String name, String color, Engine engine, List<EquipmentOption> equipmentOptions) {
