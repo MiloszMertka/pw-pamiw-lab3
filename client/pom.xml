@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>pw-pamiw-lab1</artifactId>
+    <artifactId>client</artifactId>
     <version>1.0.0</version>
-    <name>pw-pamiw-lab1</name>
+    <name>client</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,7 +56,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.pwpamiwlab1.Main</mainClass>
+                            <mainClass>com.example.client.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
