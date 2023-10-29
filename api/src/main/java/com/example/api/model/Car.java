@@ -24,7 +24,7 @@ public class Car {
     @EqualsAndHashCode.Exclude
     private String color;
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
+    @ManyToOne(optional = false)
     @EqualsAndHashCode.Exclude
     private Engine engine;
 
