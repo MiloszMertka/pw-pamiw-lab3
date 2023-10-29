@@ -1,13 +1,16 @@
-package com.example.client;
+package com.example.client.view;
 
+import com.example.client.Views;
 import com.example.client.service.WeatherService;
-import com.example.client.view.TemperatureViewModel;
 import com.google.inject.Inject;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class AppViewModel {
+public class WeatherViewModel {
 
     private static final String TEMPERATURE_UNIT = " st. C";
     private final WeatherService weatherService;
@@ -34,7 +37,7 @@ public class AppViewModel {
     private Label next5DaysTemperatureLabel;
 
     @Inject
-    public AppViewModel(WeatherService weatherService) {
+    public WeatherViewModel(WeatherService weatherService) {
         this.weatherService = weatherService;
     }
 
@@ -43,6 +46,13 @@ public class AppViewModel {
         final var city = cityField.getText();
         final var temperatures = getTemperaturesForCity(city);
         setTemperatureLabels(temperatures);
+    }
+
+    @FXML
+    private void onGoBackButtonClick(ActionEvent actionEvent) {
+        final var source = (Node) actionEvent.getSource();
+        final var stage = (Stage) source.getScene().getWindow();
+        Views.APP_VIEW.loadScene(stage);
     }
 
     private TemperatureViewModel getTemperaturesForCity(String city) {

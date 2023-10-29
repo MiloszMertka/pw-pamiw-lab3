@@ -35,7 +35,7 @@ class EquipmentOptionController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Void> updateEquipmentOption(@PathVariable Long id, @RequestBody @Valid EquipmentOptionDto equipmentOptionDto) {
         equipmentOptionUseCases.updateEquipmentOption(id, equipmentOptionDto);
         return ResponseEntity.noContent().build();

@@ -35,7 +35,7 @@ class EngineController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Void> updateEngine(@PathVariable Long id, @RequestBody @Valid EngineDto engineDto) {
         engineUseCases.updateEngine(id, engineDto);
         return ResponseEntity.noContent().build();
